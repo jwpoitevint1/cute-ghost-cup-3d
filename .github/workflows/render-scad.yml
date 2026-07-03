@@ -16,7 +16,7 @@ jobs:
         run: sudo apt-get update && sudo apt-get install -y openscad
       
       - name: Render PNG preview
-        run: openscad -o ghost_preview.png --render=full ghost_cup.scad
+        run: openscad -o ghost_preview.png --render=full --autocenter --viewall --imgsize=800,600 --camera=0,0,0,55,0,25,300 ghost_cup.scad
 
       - name: Export STL
         run: openscad -o ghost_cup.stl --export-format=binstl ghost_cup.scad
