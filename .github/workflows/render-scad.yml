@@ -16,10 +16,10 @@ jobs:
         run: sudo apt-get update && sudo apt-get install -y openscad
       
       - name: Render PNG preview
-        run: openscad -o ghost_preview.png --render ghost_cup.scad
+        run: openscad -o ghost_preview.png --render=full ghost_cup.scad
 
       - name: Export STL
-        run: openscad -o ghost_cup.stl ghost_cup.scad
+        run: openscad -o ghost_cup.stl --export-format=binstl ghost_cup.scad
       
       - name: Upload artifacts
         uses: actions/upload-artifact@v4
