@@ -17,9 +17,14 @@ jobs:
       
       - name: Render PNG preview
         run: openscad -o ghost_preview.png --render ghost_cup.scad
+
+      - name: Export STL
+        run: openscad -o ghost_cup.stl ghost_cup.scad
       
-      - name: Upload artifact
+      - name: Upload artifacts
         uses: actions/upload-artifact@v4
         with:
-          name: renders
-          path: ghost_preview.png
+          name: renders-and-stl
+          path: |
+            ghost_preview.png
+            ghost_cup.stl
